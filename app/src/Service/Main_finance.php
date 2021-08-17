@@ -1,7 +1,8 @@
 <?php
+namespace App\Service;
 class Main_finance {
 
-    function Main_finance() {
+    public function __construct() {
 
 
     }
