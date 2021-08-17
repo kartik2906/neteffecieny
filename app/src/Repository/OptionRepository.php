@@ -19,22 +19,37 @@ class OptionRepository extends ServiceEntityRepository
         parent::__construct($registry, Option::class);
     }
 
-    // /**
-    //  * @return Option[] Returns an array of Option objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+    /**
+    * @return Option[] Returns an array of Option objects
     */
+    public function findDisplayByPrice($displayPriceText)
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT o
+            FROM App\Entity\Option o
+            WHERE o.name  = :display_price'
+        )->setParameter('display_price', $displayPriceText);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+    
+
+    public function findByPrice($priceText)
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT o
+            FROM App\Entity\Option o
+            WHERE o.name  = :price'
+        )->setParameter('price', $priceText);
+
+        // returns an array of Product objects
+        return $query->getResult();
+    }
 
     /*
     public function findOneBySomeField($value): ?Option
