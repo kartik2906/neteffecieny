@@ -4,7 +4,7 @@
 Migration plan <br />
 - backup website,  database <br />
 - prepare checklist for items to be changed for  backwards compatible from 5.6 to 8.0 <br/>
-- 
+
 transforming to Symphony 4.4   <br />
 	- cd into neteffeciency/app <br />
 	-  under src/Controller has  ’TimePriceController.php’ which  has time  and price functionality <br />
